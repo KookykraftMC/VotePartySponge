@@ -139,19 +139,19 @@ public class VoteParty {
         }
         Map<String, TextElement> m = new HashMap<>();
         m.put("votes", Text.of(untilParty));
-        game.getServer().getBroadcastChannel().send(Texts.broadcastMessage.apply(m).build(), ChatTypes.ACTION_BAR);
-        game.getServer().getBroadcastChannel().send(Texts.broadcastMessage.apply(m).build());
+        game.getServer().getBroadcastChannel().send(Texts.getBroadcastMessage().apply(m).build(), ChatTypes.ACTION_BAR);
+        game.getServer().getBroadcastChannel().send(Texts.getBroadcastMessage().apply(m).build());
         save();
     }
 
     void party() {
-        game.getServer().getBroadcastChannel().send(Texts.partyMessage.apply().build(), ChatTypes.ACTION_BAR);
-        game.getServer().getBroadcastChannel().send(Texts.partyMessage.apply().build());
+        game.getServer().getBroadcastChannel().send(Texts.getPartyMessage().apply().build(), ChatTypes.ACTION_BAR);
+        game.getServer().getBroadcastChannel().send(Texts.getPartyMessage().apply().build());
         for (Player player : game.getServer().getOnlinePlayers()) {
             String reward = voteRewards.get(random.nextInt(voteRewards.size())).replace("@p", player.getName());
             game.getCommandManager().process(game.getServer().getConsole(), reward);
             player.playSound(SoundTypes.BLOCK_ANVIL_LAND, player.getLocation().getPosition(), 2);
-            player.sendTitle(Title.of(Texts.partyMessage.apply().build()));
+            player.sendTitle(Title.of(Texts.getPartyMessage().apply().build()));
         }
     }
 
@@ -197,5 +197,9 @@ public class VoteParty {
 
     public int getUntilParty() {
         return untilParty;
+    }
+
+    public List<String> getVoteRewards() {
+        return voteRewards;
     }
 }
