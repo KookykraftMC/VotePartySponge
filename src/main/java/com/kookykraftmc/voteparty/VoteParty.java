@@ -25,8 +25,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
-@Plugin(id = "voteparty", name = "Voteparty", description = "A drop party for voting", url = "http://kookykraftmc.net", authors = {"TimeTheCat"}
-)
+@Plugin(id = "voteparty", name = "Voteparty", description = "A drop party for voting", url = "http://kookykraftmc.net", authors = {"TimeTheCat"})
 public class VoteParty {
     public static VoteParty instance;
 
