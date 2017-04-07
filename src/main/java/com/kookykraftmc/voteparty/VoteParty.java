@@ -154,9 +154,9 @@ public class VoteParty {
         }
     }
 
-    Text getVotesUntilText(int b) {
+    Text getVotesUntilText() {
         Map<String, TextElement> m = new HashMap<>();
-        m.put("votes", Text.of(b));
+        m.put("votes", Text.of(getUntilParty()));
         return Texts.getBroadcastMessage().apply(m).build();
     }
 

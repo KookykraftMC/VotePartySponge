@@ -13,7 +13,7 @@ public class VPCommand implements CommandExecutor {
     VoteParty pl = VoteParty.getInstance();
     @Override
     public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
-        src.sendMessage(pl.getVotesUntilText(pl.getUntilParty()));
+        src.sendMessage(pl.getVotesUntilText());
         return CommandResult.success();
     }
 }
